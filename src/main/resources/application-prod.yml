@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: Xboot-config
+  cloud:
+    #整体的意思就是：我的配置文件是放在git仓库的respo目录下，并且是master分支的
+    config:    #仓库 , 配置文件是放在git仓库里的
+      label: master   #分支，中央集中式管理，中心化
+      server:
+        git:
+          uri: https://github.com/wwksdbx/config  #仓库地址
+          search-paths:   #仓库中放配置的目录
+          username: Ademle
+          password:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
+
+  zipkin:
+    base-url: http://localhost:9411
+
+server:
+  port: 8888   #Configserver 固定端口 8888,不能修改 ，如需修 额外起 bootstrap.properties配置文件修改
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
